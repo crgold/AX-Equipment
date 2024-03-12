@@ -50,8 +50,9 @@ module.exports = {
             withFee: true,
         },
     },
-    beamTestnet: {
+    "beam-testnet": {
         AX1155: {
+            address: "0xd948913457824020b5509198e15D272063bD8814",
             baseUri: "ipfs://bafybeifqaqm6iy6o6lhjql2wks24p4i3ad2ejo4esh7zug3akqvxkno7hm/",
             royaltyBasePoints: 700,
         },
@@ -95,8 +96,9 @@ module.exports = {
             withFee: true,
         },
     },
-    skaleTestnet: {
+    "skale-testnet": {
         AX1155: {
+            address: "0x6093aB37D167145B79aE04cB58D5A132e2D6AD05",
             baseUri: "ipfs://bafybeifqaqm6iy6o6lhjql2wks24p4i3ad2ejo4esh7zug3akqvxkno7hm/",
             royaltyBasePoints: 700,
         },
@@ -208,4 +210,11 @@ module.exports = {
             minGas: 10000000,
         },
     },
+    "fantom-testnet": {
+        AX1155: {
+            //address: "",
+            baseUri: "ipfs://bafybeifqaqm6iy6o6lhjql2wks24p4i3ad2ejo4esh7zug3akqvxkno7hm/",
+            royaltyBasePoints: 700,
+        },
+    }
 }

@@ -1,23 +1,12 @@
 require("dotenv").config()
-
 //require("@nomiclabs/hardhat-etherscan")
 //require("@nomiclabs/hardhat-waffle")
-require("@openzeppelin/hardhat-upgrades")
+//require("@openzeppelin/hardhat-upgrades")
 require("hardhat-deploy")
 require("hardhat-deploy-ethers")
-//require("./tasks")
+require("./tasks")
 // require("hardhat-contract-sizer")
 // require("hardhat-gas-reporter")
-
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-/*task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-    const accounts = await hre.ethers.getSigners()
-
-    for (const account of accounts) {
-        console.log(account.address)
-    }
-})*/
 
 function getMnemonic(networkName) {
     if (networkName) {
@@ -211,6 +200,11 @@ const networks = {
         chainId: 13337,
         accounts: accounts(),
     },
+    "skale-testnet": {
+      url: "https://testnet.skalenodes.com/v1/juicy-low-small-testnet",
+      chainId: 1444673419,
+      accounts: accounts(),
+  },
 }
 
 // You need to export an object to set up your config

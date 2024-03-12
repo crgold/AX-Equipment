@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "./ONFT1155.sol";
 import {IERC20} from "@openzeppelin/contracts/interfaces/IERC20.sol";
 
-contract ExtendedONFT1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
+contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
     uint256 private mintCount = 0;
     uint256 public constant MAX_SUPPLY = 2998;
     mapping(uint256 tokenId => string) private _tokenURIs;
