@@ -11,9 +11,8 @@ import {IERC20} from "@openzeppelin/contracts/interfaces/IERC20.sol";
 
 contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
     uint256 private mintCount = 0;
-    uint256 public constant MAX_SUPPLY = 2998;
-    mapping(uint256 tokenId => string) private _tokenURIs;
-    string public name = "ArmourX: Survivors (BEAM)";
+    uint256 public constant MAX_SUPPLY = 3000;
+    string public name = "ArmourX: Survivors";
     string public symbol = "AXS";
 
     /********************************************
@@ -31,13 +30,17 @@ contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
     /********************************************
      *** Public functions
      ********************************************/
-    function batchMint(address _to) external onlyOwner {
+    function batchMint(address _to, uint256 amount) external onlyOwner {
         require(mintCount < MAX_SUPPLY, "Collection is fully minted");
         unchecked {
-            for (uint256 i = 0; mintCount < MAX_SUPPLY && i < 250; (i++, mintCount++)) {
+            for (uint256 i = 0; i < amount && mintCount < MAX_SUPPLY; (i++, mintCount++)) {
                 _mint(_to, mintCount, 1, "");
             }
         }
+    }
+
+    function mint(address _to, uint256 tokenId) external onlyOwner {
+         _mint(_to, tokenId, 1, "");
     }
 
     /**
@@ -95,14 +98,7 @@ contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
     function uri(uint256 id) public view virtual override returns (string memory) {
         require(id < MAX_SUPPLY, "ExtendedONFT1155: Token ID doesn't exist");
 
-        string memory _tokenURI = _tokenURIs[id];
-
-        // If token URI is set, return that instead of the base URI.
-        if (bytes(_tokenURI).length > 0) {
-            return _tokenURI;
-        }
-
-        // if there is not token URI, return the baseURI
+        // return the baseURI
         return string(
             abi.encodePacked(
                 super.uri(id),
