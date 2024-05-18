@@ -30,6 +30,10 @@ contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
     /********************************************
      *** Public functions
      ********************************************/
+
+    /**
+     * @dev Convenience function for initial minting of the collection.
+     */
     function batchMint(address _to, uint256 amount) external onlyOwner {
         require(mintCount < MAX_SUPPLY, "Collection is fully minted");
         unchecked {
@@ -39,6 +43,9 @@ contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
         }
     }
 
+    /**
+     * @dev Standard mint function.
+     */
     function mint(address _to, uint256 tokenId) external onlyOwner {
          _mint(_to, tokenId, 1, "");
     }
@@ -107,11 +114,17 @@ contract AX1155 is Ownable, ERC1155, ERC1155Burnable, ERC2981, ONFT1155 {
         );
     }
 
+    /**
+     * @dev Function for withdrawing erronously sent NFTs.
+     */
     function withdraw() public onlyOwner {
         uint256 balance = address(this).balance;
         payable(msg.sender).transfer(balance);
     }
 
+    /**
+     * @dev Function for withdrawing erronously sent tokens.
+     */
     function withdrawTokens(IERC20 token) public onlyOwner {
         uint256 balance = token.balanceOf(address(this));
         token.transfer(msg.sender, balance);
