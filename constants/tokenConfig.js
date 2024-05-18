@@ -1,7 +1,7 @@
 module.exports = {
     beam: {
         AX1155: {
-            //address: "",
+            address: "0xb2e0e3bF1a725cCD286b7CE360FE0d89FF60A45E",
             baseUri: "ipfs://bafybeifqaqm6iy6o6lhjql2wks24p4i3ad2ejo4esh7zug3akqvxkno7hm/",
             royaltyBasePoints: 700,
         },
