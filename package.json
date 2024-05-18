@@ -1,7 +1,7 @@
 {
   "name": "ax1155",
   "version": "1.0.0",
-  "description": "ArmourX: LayerZero ERC1155 Contract",
+  "description": "ArmourX: Survivors LayerZero ERC1155 Contract",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
